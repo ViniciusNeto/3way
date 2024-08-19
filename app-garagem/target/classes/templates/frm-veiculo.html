@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Garagem</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+	<div th:include="menu.html"></div>
+	<div class="card">
+		<div class="card-header">
+			<h2 class="mb-0">Cadastrar Veículo</h2>
+		</div>
+		<div class="card-body">
+			<form action="#" th:action="@{/salvar}" th:object="${veiculo}" method="post">
+				<input type="hidden" name="id" th:field="*{id}" />
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label>Marca</label> <input class="form-control" type="text" th:field="*{marca}"/>
+					</div>
+					<div class="form-group col-md-6">
+						<label>Modelo</label> <input class="form-control" type="text" th:field="*{modelo}"/>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-9">
+						<label>Descrição</label> <input class="form-control" type="text" th:field="*{descricao}"/>
+					</div>
+					<div class="form-group col-md-2">
+						<label>Placa</label> <input class="form-control" type="text" th:field="*{placa}"/>
+					</div>
+					<div class="form-group col-md-1">
+						<label>Ano Modelo</label> <input class="form-control" type="text" th:field="*{anoModelo}"/>
+					</div>
+				</div>
+				<hr />
+				<button class="btn btn-primary ml-3" type="submit">Salvar</button>
+				<button class="btn btn-danger ml-1" type="reset">Cancelar</button>
+				<button class="btn btn-secondary ml-1" type="button" onclick="window.location.href='/'">Home</button>
+			</form>
+			<hr />
+			<div th:if="${msg != null}">
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					<strong th:text="${msg}"></strong>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

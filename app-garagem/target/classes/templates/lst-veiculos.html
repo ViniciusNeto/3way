@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JSP Page</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+	<div th:include="menu.html"></div>
+	<div class="card">
+		<div class="card-header">
+			<h2 class="mb-0">Veículos Cadastrados</h2>
+		</div>
+		<div class="card-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Marca</th>
+						<th>Modelo</th>
+						<th>Descrição</th>
+						<th>Ano Modelo</th>
+						<th>Editar</th>
+						<th>Excluir</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr th:each="veiculo : ${lstVeiculos}">
+						<td><span th:text="${veiculo.marca}"></span></td>
+						<td><span th:text="${veiculo.modelo}"></span></td>
+						<td><span th:text="${veiculo.descricao}"></span></td>
+						<td><span th:text="${veiculo.anoModelo}"></span></td>
+						<td><a th:href="@{/editar/{id}(id=${veiculo.id})}">Editar</a></td>
+						<td><a th:href="@{/excluir/{id}(id=${veiculo.id})}">Excluir</a></td>
+					</tr>
+
+					<tr>
+						<td colspan="6">Quantidade de veículos cadastrados:
+						</td>
+
+					</tr>
+					<tr>
+						<td colspan="6">
+							<a class="btn btn-secondary" name="btn" value="Home" th:href="@{/}">Home</a>
+							<a class="btn btn-success" name="btn" value="Novo Veiculo" th:href="@{novo}">Novo
+								Veículo</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
